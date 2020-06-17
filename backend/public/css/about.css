@@ -1,0 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.team
+{
+	overflow: hidden;
+	text-align: center;
+	background: white;
+	padding: 0;
+}
+.team h1{
+	text-transform: uppercase;
+	margin-bottom: 60px;
+	color: black;
+	font-size: 40px;
+
+}
+.member{
+	margin-bottom: 40px;
+}
+.member a{
+	display: inline-block;
+	margin: 0 30px;
+	width: 160px;
+	height: 160px;
+	overflow: hidden;
+	border-radius: 15px 50px;
+}
+.member a img{
+	width: 100%;
+	filter: grayscale(100%);
+	transition: 0.4s all;
+}
+.member a:hover > img{
+	filter: none;
+}
+.section{
+	width: 600px;
+	margin: auto;
+	font-size: 20px;
+	color:black;
+	text-align: justify;
+}
+.name{
+	display: block;
+	margin-bottom: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+footer{
+	background: #33FFD2;
+	padding:90px 0;
+}
+.classfooter{
+	max-width: 1300px;
+	margin: auto;
+	padding: 0 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap-reverse; 
+}
+.logo{
+	width: 10%;
+
+}
+.social{
+	margin: 20px 0;
+}
+.social a{
+	color:white;
+	margin-right: 25px;
+	font-size: 22px;
+	text-decoration: none;
+	transition: .3s linear;
+}
+.rightfooter h1{
+	font-size: 26px;
+
+}
+.border{
+	width: 100px;
+	height: 4px;
+	background: white;
+}
+.newslatter-form{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.txtb{
+	padding: 18px 40px
+	border-radius: 30px;
+	outline: none;
+	font-weight: 700;
+	font-size: 16px
+}
+.btn{
+	padding: 18px 40px
+	border-radius: 30px;
+	outline: none;
+	font-weight: 700;
+	font-size: 16px
+	margin-left:20px;
+	color: white;
+	background-color: #3351FF;
+}
