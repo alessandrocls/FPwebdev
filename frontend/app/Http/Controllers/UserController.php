@@ -30,7 +30,7 @@ class UserController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->post('http://127.0.0.1:8000/api/signup', [
+        ])->post(env('API_URL','34.101.151.88').'/api/signup', [
             "email" => $request->input('email'),
             'password' => $request->input('password'),
             'fullname' => $request->input('fullname'),
@@ -65,7 +65,7 @@ class UserController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->post('http://127.0.0.1:8000/api/login', [
+        ])->post(env('API_URL','34.101.151.88').'/api/login', [
             "email" => Str::lower($request->input('email')),
             'password' => $request->input('password'),
         ]);
@@ -88,7 +88,7 @@ class UserController extends Controller
             $count = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->get('http://127.0.0.1:8000/api/getCartCount', [
+            ])->get(env('API_URL','34.101.151.88').'/api/getCartCount', [
                 "userID" => Session::get('userID'),
             ]);
             Session::put('count',$count);

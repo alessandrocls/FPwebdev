@@ -28,14 +28,14 @@ class BillController extends Controller
             $response1 = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->patch('http://127.0.0.1:8000/api/addToCart', [
+            ])->patch(env('API_URL','34.101.151.88').'/api/addToCart', [
                 "userID" => Session::get("userID"),
                 "productID" => $productid,
             ]);
             $response2 = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->get('http://127.0.0.1:8000/api/getCartCount', [
+            ])->get(env('API_URL','34.101.151.88').'/api/getCartCount', [
                 "userID" => Session::get('userID'),
             ]);
             $response = json_decode($response1->body(), true);
@@ -55,13 +55,13 @@ class BillController extends Controller
             $response1 = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->get('http://127.0.0.1:8000/api/getCart', [
+            ])->get(env('API_URL','34.101.151.88').'/api/getCart', [
                 "userID" => Session::get('userID'),
             ]);
             $response2 = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->get('http://127.0.0.1:8000/api/getBillID', [
+            ])->get(env('API_URL','34.101.151.88').'/api/getBillID', [
                 "userID" => Session::get('userID'),
             ]);
             $data = json_decode($response1->body(), true);
@@ -76,7 +76,7 @@ class BillController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->get('http://127.0.0.1:8000/api/getBills', [
+        ])->get(env('API_URL','34.101.151.88').'/api/getBills', [
             "billID" => $billID,
         ]);
 
@@ -96,7 +96,7 @@ class BillController extends Controller
             $response = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->get('http://127.0.0.1:8000/api/getHistory', [
+            ])->get(env('API_URL','34.101.151.88').'/api/getHistory', [
                 "userID" => Session::get('userID'),
             ]);
 
@@ -113,13 +113,13 @@ class BillController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->delete('http://127.0.0.1:8000/api/deleteItem', [
+        ])->delete(env('API_URL','34.101.151.88').'/api/deleteItem', [
             "billDetailID" => $billDetailID,
         ]);
         $response2 = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->get('http://127.0.0.1:8000/api/getCartCount', [
+        ])->get(env('API_URL','34.101.151.88').'/api/getCartCount', [
             "userID" => Session::get('userID'),
         ]);
         $count = json_decode($response2->body(), true);
@@ -135,7 +135,7 @@ class BillController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->patch('http://127.0.0.1:8000/api/addPayment', [
+        ])->patch(env('API_URL','34.101.151.88').'/api/addPayment', [
             "billID" => $billID,
             "paymentTypeID" => $paymentTypeID
         ]);

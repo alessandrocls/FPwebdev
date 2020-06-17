@@ -55,7 +55,7 @@ class AdminController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->post('http://127.0.0.1:8000/api/adminlogin', [
+        ])->post(env('API_URL','34.101.151.88').'/api/adminlogin', [
             "username" => Str::lower($request->input('username')),
             'password' => $request->input('password'),
         ]);
@@ -86,14 +86,14 @@ class AdminController extends Controller
 
     public function getOrders()
     {
-        $response = Http::get('http://127.0.0.1:8000/api/getOrders');
+        $response = Http::get(env('API_URL','34.101.151.88').'/api/getOrders');
         $data = json_decode($response->body(), true);
         // dump($data);
         return view('/orders', compact('data'));
     }
     public function getOrdersHistory()
     {
-        $response = Http::get('http://127.0.0.1:8000/api/getOrderHistory');
+        $response = Http::get(env('API_URL','34.101.151.88').'/api/getOrderHistory');
         $data = json_decode($response->body(), true);
         // dump($data);
         return view('/ordershistory', compact('data'));
@@ -104,7 +104,7 @@ class AdminController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->get('http://127.0.0.1:8000/api/getOrderDetails', [
+        ])->get(env('API_URL','34.101.151.88').'/api/getOrderDetails', [
             "billID" => $billID,
         ]);
         $data = json_decode($response->body(), true);
@@ -120,7 +120,7 @@ class AdminController extends Controller
         $patchStatus = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->patch('http://127.0.0.1:8000/api/confirmOrder1', [
+        ])->patch(env('API_URL','34.101.151.88').'/api/confirmOrder1', [
                 'data' => $data,
                 'billID' => $billID
         ]);
@@ -128,7 +128,7 @@ class AdminController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
 
-        ])->get('http://127.0.0.1:8000/api/getBills', [
+        ])->get(env('API_URL','34.101.151.88').'/api/getBills', [
             "billID" => $billID,
         ]);
         $bills = json_decode($response->body(), true);
@@ -142,7 +142,7 @@ class AdminController extends Controller
             $patchGamekey = Http::withHeaders([
                 'Accept' => 'application/json',
     
-            ])->patch('http://127.0.0.1:8000/api/confirmOrder2', [
+            ])->patch(env('API_URL','34.101.151.88').'/api/confirmOrder2', [
                 'billDetailID' => $bills['billDetailID'],
                 'gamekey' => $newGamekey
             ]);
